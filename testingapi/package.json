@@ -12,8 +12,10 @@
   "dependencies": {
     "@hapi/hapi": "^21.3.2",
     "@hapi/inert": "^7.1.0",
+    "@hapi/jwt": "^3.2.0",
     "@hapi/vision": "^7.0.3",
     "bogon": "^1.1.0",
+    "firebase-admin": "^11.11.1",
     "handlebars": "^4.7.8",
     "hapi-geo-locate": "^4.1.1",
     "plugin": "^0.0.15"

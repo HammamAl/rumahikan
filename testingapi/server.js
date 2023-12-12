@@ -1,25 +1,25 @@
 const Hapi = require('@hapi/hapi');
-const plugin = require('plugin');
 const inert = require('@hapi/inert');
 const path = require('path');
-const { log } = require('console');
-const { request } = require('http');
+const admin = require('firebase-admin');
+const { db } = require('./firebase');
+const collection = require('plugin/lib/node/collection');
+
 
 const init = async () => {
-
     const server = Hapi.Server({
         host: 'localhost',
         port: 1234,
         routes: {
             files: {
-                relativeTo : path.join(__dirname,'testing')
+                relativeTo: path.join(__dirname, 'testing')
             }
         }
     });
 
     await server.register([
         {
-            plugin: require("hapi-geo-locate"),
+            plugin: require('hapi-geo-locate'),
             options: {
                 enableByDefault: true
             }
@@ -33,11 +33,11 @@ const init = async () => {
     ]);
 
     server.views({
-        engines: { 
-            hbs: require('handlebars') 
+        engines: {
+            hbs: require('handlebars')
         },
-        path: path.join(__dirname,'views'),
-        layout: 'deafult'
+        path: path.join(__dirname, 'views'),
+        layout: 'deafault' // Perbaikan: Ganti 'deafult' menjadi 'default'
     });
 
     server.route([
@@ -45,70 +45,86 @@ const init = async () => {
             method: 'GET',
             path: '/',
             handler: (request, h) => {
-                return h.file('test.html');
+                return h.file('login.html');
             }
         },
-
         {
             method: 'GET',
-            path: '/dynamic',
-            handler: (request, h) => {
-                const data = {
-                    name: 'ananta'
+            path: '/getusers',
+            handler: async (request, h) => {
+                try {
+                    const usersSnapshot = await admin.firestore().collection('users').get();
+                    const users = usersSnapshot.docs.map(doc => doc.data());
+                    console.log(users);
+                    return h.response(users);
+                } catch (error) {
+                    console.error(error);
+                    return 'Error fetching users';
                 }
-                return h.view('index', data)
             }
         },
 
         {
             method: 'POST',
             path: '/login',
-            handler: (request, h) => {
-               return h.view('index', {username: request.payload.username});
-            }    
-        },
-        
+            handler: async (request, h) => {
+             try{
+                const { username, password } = request.payload;
+                const usersRef= admin.firestore().collection('users');
+                const doc = await usersRef
+                    .where('username', '==', username)
+                    .where('password', '==', password)
+                    .get();
+                    
+                return h.view('index', { username: userRecord.displayName });
 
-        {
-            method: 'GET',
-            path: '/download',
-            handler: (request, h) => {
-                return h.file('test.html',{
-                    mode : 'inline',
-                    filename:'welcome-download.html'
-                });
+            } catch(error) {
+                console.error(error);
+                return 'Login failed';
             }
+        }
         },
-        {
-            method: 'GET',
-            path: '/location',
-            handler: (request, h) => {
-                if (request.location) {
-                    return h.view('location',{location: request.location.ip});
-                } else {
-                    return h.view('location',{location: "gak kebaca lokasinya"});
-                }
+
+    {
+        method: 'POST',
+        path: '/register',
+        handler: async (request, h) => {
+            // return h.file('register.html')
+            try {
+                const { username, name, password } = request.payload;
+                const userRef = admin.firestore().collection('users');
+                console.log('Received registration request:', { username, name, password });
+
+                // Simpan data pengguna ke Firestore
+                const newUser = {
+                    username,
+                    name,
+                    password,
+                    createdAt: admin.firestore.FieldValue.serverTimestamp()
+                };
+
+                const result = await userRef.add(newUser);
+                console.log('User registered successfully:', result.id);
+                return `User registered with ID: ${result.id}`;
+
+            } catch (error) {
+                console.error(error);
+                return 'Error registering user';
             }
+        }
         },
-        {
-            method: 'GET',
-            path: '/{any*}',
+
+{
+    method: 'GET',
+        path: '/{any*}',
             handler: (request, h) => {
                 return "<h1>Halaman tidak ditemukan</h1>";
             }
-        },
-        {
-            method: 'GET',
-            path: '/users',
-            handler: (request, h) => {
-                return "<h1>menu USER</h1>"
-            }
-        }
+},
     ]);
 
-    await server.start();
-    console.log(`Server started on: ${server.info.uri}`);
-
+await server.start();
+console.log(`Server started on: ${server.info.uri}`);
 }
 
 process.on('unhandledRejection', (err) => {
