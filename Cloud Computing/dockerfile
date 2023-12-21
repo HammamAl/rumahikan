@@ -1,7 +1,0 @@
-FROM node:alpine
-COPY package*.json /
-COPY . ./
-COPY server.js ./
-RUN npm install
-EXPOSE 8080
-CMD ["node", "server.js"]
