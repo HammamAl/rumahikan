@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SplashScreenActivity"
+    android:background="@color/white">
+    
+    <View
+        android:id="@+id/top"
+        android:layout_width="428dp"
+        android:layout_height="146dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/splash_asset_top"/>
+
+    <View
+        android:id="@+id/logo_rumahikan"
+        android:layout_width="256dp"
+        android:layout_height="280dp"
+        android:background="@drawable/rumahikanlogo"
+        android:layout_below="@+id/top"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_rumahikan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rumah_ikan"
+        android:layout_below="@id/logo_rumahikan"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/blue"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/making_aquaculture_easier"
+        android:layout_below="@id/tv_rumahikan"
+        android:fontFamily="@font/poppins"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/blue"/>
+
+    <View
+        android:layout_width="428dp"
+        android:layout_height="146dp"
+        android:background="@drawable/splash_asset_bottom"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ScanActivity"
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/profile_element"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/top_element" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scan_disease"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="30sp"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/note_scanfish"
+        android:layout_width="380dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:text="@string/note_scan_fish_disease"
+        android:layout_below="@+id/profile_element"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/orange"/>
+
+    <ImageView
+        android:layout_below="@id/note_scanfish"
+        android:id="@+id/image_scan_result"
+        android:layout_width="300dp"
+        android:layout_height="310dp"
+        tools:src="@drawable/image_content"
+        android:visibility="visible"
+        android:contentDescription="@string/image_scan_result"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/result"
+        android:layout_below="@id/image_scan_result"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/blue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/disease_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/disease_result"
+        android:layout_below="@id/tv_result"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_below="@id/disease_result"
+            android:layout_marginStart="125dp"
+            android:id="@+id/btn_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/yellow"
+            android:contentDescription="@string/button_scan"
+            android:src="@drawable/camera" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/btn_scan"
+            android:layout_alignTop="@id/btn_scan"
+            android:layout_marginStart="90dp"
+            android:backgroundTint="@color/yellow"
+            android:contentDescription="@string/button_scan"
+            android:src="@drawable/gallery"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_get_result"
+        android:layout_width="330dp"
+        android:layout_height="55dp"
+        app:backgroundTint="@color/blue"
+        android:text="@string/get_result"
+        android:textColor="@color/yellow"
+        android:layout_below="@id/btn_scan"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/note_fishdetect"
+        android:layout_width="380dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:text="@string/note_fish_detect"
+        android:layout_below="@+id/btn_get_result"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/orange"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>
