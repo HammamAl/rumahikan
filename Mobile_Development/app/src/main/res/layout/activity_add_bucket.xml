@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ScanActivity"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ScrollView>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
+    <View
+        android:id="@+id/profile_element"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/top_element" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_fish_bucket"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="30sp"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/note_addfishbucket"
+        android:layout_width="380dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:text="@string/note_add_fish_bucket"
+        android:layout_below="@+id/profile_element"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/orange"/>
+
+    <ImageView
+        android:layout_below="@id/note_addfishbucket"
+        android:id="@+id/image_add_fish"
+        android:layout_width="300dp"
+        android:layout_height="310dp"
+        tools:src="@drawable/image_content"
+        android:contentDescription="@string/image_scan_result"
+        android:visibility="visible"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/yellow"
+            android:contentDescription="@string/button_scan"
+            android:layout_below="@id/image_add_fish"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="125dp"
+            android:src="@drawable/camera" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/btn_camera"
+            android:layout_alignTop="@id/btn_camera"
+            android:layout_marginStart="90dp"
+            android:backgroundTint="@color/yellow"
+            android:contentDescription="@string/button_scan"
+            android:src="@drawable/gallery" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_bucket_name"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_camera"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/name_of_bucket"
+        android:textColorHint="@color/blue"
+        app:boxBackgroundColor="@color/white"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_bucket_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/poppins"
+            android:maxLines="2"
+            android:padding="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_drum"
+        android:layout_width="330dp"
+        android:layout_height="55dp"
+        app:backgroundTint="@color/blue"
+        android:text="@string/btn_add_bucket"
+        android:textColor="@color/yellow"
+        android:layout_below="@id/layout_bucket_name"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>

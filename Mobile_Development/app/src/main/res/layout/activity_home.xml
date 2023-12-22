@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/layout_profile"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/top_element" />
+
+        <ImageView
+            android:id="@+id/img_user"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/img_user"
+            android:contentDescription="@string/user_profile" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_hello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello"
+            android:textSize="16sp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/white"
+            android:layout_toEndOf="@+id/img_user"
+            android:layout_marginTop="30dp"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user"
+            android:textSize="18sp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"
+            android:layout_toEndOf="@+id/img_user"
+            android:layout_below="@+id/tv_hello"
+            android:layout_marginEnd="10dp"
+            />
+
+        <ImageView
+            android:id="@+id/settings"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/logout"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="30dp"/>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/menu_bucket"
+        android:layout_width="154dp"
+        android:layout_height="198dp"
+        android:layout_below="@id/layout_profile"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp">
+
+        <View
+            android:id="@+id/bucket_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/layout_menu"/>
+
+        <View
+            android:layout_width="82dp"
+            android:layout_height="123dp"
+            android:background="@drawable/fish_bucket"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fish_bucket"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"
+            android:layout_marginBottom="10dp"
+            android:layout_alignBottom="@+id/bucket_view"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/menu_log"
+        android:layout_width="154dp"
+        android:layout_height="198dp"
+        android:layout_below="@id/layout_profile"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp">
+
+        <View
+            android:id="@+id/log_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/layout_menu"/>
+
+        <View
+            android:layout_width="88dp"
+            android:layout_height="104dp"
+            android:background="@drawable/log_activity"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/log_activity"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"
+            android:layout_marginBottom="10dp"
+            android:layout_alignBottom="@+id/log_view"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/menu_needs"
+        android:layout_width="154dp"
+        android:layout_height="198dp"
+        android:layout_below="@id/menu_bucket"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp">
+
+        <View
+            android:id="@+id/needs_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/layout_menu"/>
+
+        <View
+            android:layout_width="102dp"
+            android:layout_height="120dp"
+            android:background="@drawable/fish_needs"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fish_needs"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"
+            android:layout_marginBottom="10dp"
+            android:layout_alignBottom="@+id/needs_view"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/menu_lovers"
+        android:layout_width="154dp"
+        android:layout_height="198dp"
+        android:layout_below="@id/menu_log"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp">
+
+        <View
+            android:id="@+id/lovers_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/layout_menu"/>
+
+        <View
+            android:layout_width="134dp"
+            android:layout_height="87dp"
+            android:background="@drawable/fish_lovers"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fish_lovers"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"
+            android:layout_marginBottom="10dp"
+            android:layout_alignBottom="@+id/lovers_view"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/layout_scan"
+        android:layout_width="match_parent"
+        android:layout_height="119dp"
+        android:background="@drawable/layout_scan"
+        android:layout_alignParentBottom="true"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/scan_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/button_scan"
+        android:backgroundTint="@color/yellow"
+        android:src="@drawable/camera"
+        android:layout_alignTop="@id/layout_scan"
+        android:layout_marginTop="-25dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/detect_disease"
+        android:layout_below="@id/scan_camera"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
